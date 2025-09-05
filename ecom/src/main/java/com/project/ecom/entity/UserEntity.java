@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +15,7 @@ public class User {
     private String email;
     private String password;
     private String name;
-    private UserRole userDto;
+    private UserRole userRole;
     @Lob
     @Column(columnDefinition = "longblob")
     private byte[] img;
