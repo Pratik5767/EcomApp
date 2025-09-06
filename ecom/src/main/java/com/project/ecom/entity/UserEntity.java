@@ -2,11 +2,13 @@ package com.project.ecom.entity;
 
 import com.project.ecom.enums.UserRole;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name = "users")
+@Builder
 public class UserEntity {
 
     @Id
@@ -15,7 +17,10 @@ public class UserEntity {
     private String email;
     private String password;
     private String name;
-    private UserRole userRole;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
     @Lob
     @Column(columnDefinition = "longblob")
     private byte[] img;
