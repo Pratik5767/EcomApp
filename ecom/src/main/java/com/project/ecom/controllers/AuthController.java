@@ -6,6 +6,7 @@ import com.project.ecom.dtos.UserDto;
 import com.project.ecom.entity.UserEntity;
 import com.project.ecom.repositories.UserRepository;
 import com.project.ecom.services.auth.IAuthService;
+import com.project.ecom.services.jwt.UserDetailsServiceImpl;
 import com.project.ecom.utils.JwtUtils;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,12 +30,12 @@ import java.util.Optional;
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
-    private final UserDetailsService userDetailsService;
+    private final UserDetailsServiceImpl userDetailsService;
     private final UserRepository userRepository;
     private final JwtUtils jwtUtils;
     private final IAuthService authService;
-    private static final String HEADER_STRING = "Bearer ";
-    private static final String TOKEN_PREFIX = "Authentication";
+    private static final String HEADER_STRING = "Authorization";
+    private static final String TOKEN_PREFIX = "Bearer ";
 
     @PostMapping("/authenticate")
     public void createAuthenticationToken(@RequestBody AuthenticationRequest authRequest,
@@ -58,6 +58,9 @@ public class AuthController {
                     .put("role", optionalUser.get().getRole())
                     .toString()
             );
+            response.addHeader("Access-Control-Expose-Headers", "Authorization");
+            response.addHeader("Access-Control-Allow-Headers", "Authorization, X-PINGOTHER, Origin, " +
+                    "X-Requested-With, Content-Type, Accept, X-Custom-header");
             response.addHeader(HEADER_STRING, TOKEN_PREFIX + jwt);
         }
     }

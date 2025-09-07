@@ -8,6 +8,8 @@ import { DemoAngularMaterialModule } from './DemoAngularMaterialModule';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -20,7 +22,10 @@ import { HomeComponent } from './home/home.component';
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        DemoAngularMaterialModule
+        DemoAngularMaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]
