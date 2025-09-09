@@ -20,6 +20,22 @@ export class AdminService {
         });
     }
 
+    getAllCategories(): Observable<any> {
+        return this.httpClient.get(`${BASIC_URL}/api/admin/categories`, {
+            headers: this.createAuthorizationHeader(),
+        });
+    }
+
+    addProduct(productDto: any): Observable<any> {
+        return this.httpClient.post(`${BASIC_URL}/api/admin/product`, productDto, {
+            headers: this.createAuthorizationHeader(),
+        });
+    }
+
+    // getAllProducts(): Observable<any> {
+    //     return this.httpClient.get(`${BASIC_URL}/api/admin/products`);
+    // }
+
     private createAuthorizationHeader(): HttpHeaders {
         return new HttpHeaders().set(
             'Authorization', 'Bearer ' + UserStorageService.getToken()
