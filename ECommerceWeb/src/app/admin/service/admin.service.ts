@@ -32,9 +32,11 @@ export class AdminService {
         });
     }
 
-    // getAllProducts(): Observable<any> {
-    //     return this.httpClient.get(`${BASIC_URL}/api/admin/products`);
-    // }
+    getAllProducts(): Observable<any> {
+        return this.httpClient.get(`${BASIC_URL}/api/admin/products`, {
+            headers: this.createAuthorizationHeader()
+        });
+    }
 
     private createAuthorizationHeader(): HttpHeaders {
         return new HttpHeaders().set(

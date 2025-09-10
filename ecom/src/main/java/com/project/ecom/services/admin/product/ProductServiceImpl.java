@@ -33,6 +33,12 @@ public class ProductServiceImpl implements IProductService {
         return products.stream().map(ProductEntity::convertToDto).collect(Collectors.toList());
     }
 
+    @Override
+    public List<ProductDto> getAllProductsByName(String name) {
+        List<ProductEntity> products = productRepository.findAllByNameContaining(name);
+        return products.stream().map(ProductEntity::convertToDto).collect(Collectors.toList());
+    }
+
     private ProductEntity convertToEntity(ProductDto dto) throws IOException {
         return ProductEntity.builder()
                 .name(dto.getName())

@@ -1,10 +1,30 @@
 import { Component } from '@angular/core';
+import { AdminService } from '../../service/admin.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
 
+    products: any[] = [];
+
+    constructor(
+        private adminService: AdminService
+    ) { }
+
+    ngOnInit() {
+        this.getAllProducts();
+    }
+
+    getAllProducts() {
+        this.products = [];
+        this.adminService.getAllProducts().subscribe(res => {
+            res.forEach(ele => {
+                ele.processedImg = 'data:image/jpeg;base64,' + ele.byteImage;
+                this.products.push(ele);
+            });
+        })
+    }
 }

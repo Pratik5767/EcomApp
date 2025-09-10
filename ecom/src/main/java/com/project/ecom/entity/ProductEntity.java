@@ -45,6 +45,7 @@ public class ProductEntity {
                 .price(price)
                 .byteImage(image)
                 .categoryId(category.getId())
+                .categoryName(category.getName())
                 .build();
     }
 }

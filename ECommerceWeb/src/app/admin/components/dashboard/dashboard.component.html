@@ -1,1 +1,41 @@
-<p>dashboard works!</p>
+<div class="product-list">
+    <mat-card class="product-card" *ngFor="let product of products">
+
+        <div class="product-image-container">
+            <img [src]="product.processedImg" alt="product-image" class="product-image" />
+        </div>
+
+        <div class="product-details">
+            <h2 class="product-name">{{ product.name }}</h2>
+            <p class="product-description">{{ product.description }}</p>
+
+            <mat-divider></mat-divider>
+
+            <div class="product-info">
+                <div class="info-row">
+                    <span class="info-label">💰 Price:</span>
+                    <span class="info-value">₹{{ product.price }}</span>
+                </div>
+
+                <div class="info-row">
+                    <span class="info-label">📂 Category:</span>
+                    <span class="info-value">{{ product.categoryName }}</span>
+                </div>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="actions">
+                <button mat-raised-button color="primary" [routerLink]="'/admin/faq/' + product.id">
+                    FAQ
+                </button>
+
+                <button mat-raised-button color="accent" [routerLink]="'/admin/product/' + product.id">
+                    Update
+                </button>
+
+                <button mat-raised-button color="warn">Delete</button>
+            </div>
+        </div>
+    </mat-card>
+</div>
