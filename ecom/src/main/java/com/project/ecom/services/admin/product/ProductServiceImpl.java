@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,6 +38,16 @@ public class ProductServiceImpl implements IProductService {
     public List<ProductDto> getAllProductsByName(String name) {
         List<ProductEntity> products = productRepository.findAllByNameContaining(name);
         return products.stream().map(ProductEntity::convertToDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public boolean deleteProduct(Long id) {
+        Optional<ProductEntity> optionalProduct = productRepository.findById(id);
+        if (optionalProduct.isPresent()) {
+            productRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     private ProductEntity convertToEntity(ProductDto dto) throws IOException {

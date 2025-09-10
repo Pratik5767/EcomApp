@@ -1,3 +1,32 @@
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #4a90e2;
+}
+
+.mat-form-field-label {
+    font-weight: 500;
+    color: #555 !important;
+}
+
+input.mat-input-element {
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .product-list {
     display: flex;
     flex-wrap: wrap;
