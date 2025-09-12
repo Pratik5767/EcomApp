@@ -1,0 +1,131 @@
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #4a90e2;
+}
+
+.mat-form-field-label {
+    font-weight: 500;
+    color: #555 !important;
+}
+
+input.mat-input-element {
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 30px;
+}
+
+.product-card {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image-container {
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.product-image {
+    max-width: 90%;
+    max-height: 180px;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-details {
+    padding: 16px;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.product-info {
+    margin-top: 10px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.info-value {
+    color: #007bff;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+@media (max-width: 1024px) {
+    .product-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-card {
+        width: 100%;
+    }
+}

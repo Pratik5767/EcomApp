@@ -5,7 +5,7 @@ import com.project.ecom.entity.CategoryEntity;
 
 import java.util.List;
 
-public interface ICategoryService {
+public interface AdminCategoryService {
 
     CategoryEntity createCategory(CategoryDto categoryDto);
 

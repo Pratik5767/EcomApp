@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class ProductServiceImpl implements IProductService {
+public class AdminProductServiceImpl implements AdminProductService {
 
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;

@@ -2,7 +2,7 @@ package com.project.ecom.controllers.admin;
 
 import com.project.ecom.dtos.CategoryDto;
 import com.project.ecom.entity.CategoryEntity;
-import com.project.ecom.services.admin.category.ICategoryService;
+import com.project.ecom.services.admin.category.AdminCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
-public class CategoryController {
+public class AdminCategoryController {
 
-    private final ICategoryService categoryService;
+    private final AdminCategoryService categoryService;
 
     @PostMapping("/category")
     public ResponseEntity<CategoryEntity> createCategory(@RequestBody CategoryDto categoryDto) {

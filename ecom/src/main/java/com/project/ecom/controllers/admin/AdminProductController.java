@@ -1,7 +1,7 @@
 package com.project.ecom.controllers.admin;
 
 import com.project.ecom.dtos.ProductDto;
-import com.project.ecom.services.admin.product.IProductService;
+import com.project.ecom.services.admin.product.AdminProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/admin")
 @RequiredArgsConstructor
-public class ProductController {
+public class AdminProductController {
 
-    private final IProductService productService;
+    private final AdminProductService productService;
 
     @PostMapping("/product")
     public ResponseEntity<ProductDto> addProduct(@ModelAttribute ProductDto productDto) {

@@ -5,7 +5,7 @@ import com.project.ecom.dtos.ProductDto;
 import java.io.IOException;
 import java.util.List;
 
-public interface IProductService {
+public interface AdminProductService {
     ProductDto addProduct(ProductDto dto) throws IOException;
 
     List<ProductDto> getAllProducts();
